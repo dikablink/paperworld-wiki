@@ -26,5 +26,5 @@ Disallow: /wiki/Category_talk:
 # Allow everything else under /wiki/
 Allow: /wiki/
 
-# Sitemap (add generator and uncomment when ready)
-# Sitemap: https://wiki.anarkadia.net/sitemap.xml
+# Sitemap
+Sitemap: https://wiki.anarkadia.net/sitemap.xml

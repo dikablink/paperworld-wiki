@@ -7,7 +7,7 @@ services:
       - "443:443"
     restart: unless-stopped
     volumes:
-      - ./nginx/html:/usr/share/nginx/html
+      - ./static:/usr/share/nginx/html:ro
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
       - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
@@ -20,6 +20,7 @@ services:
     volumes:
       - ./mediawiki/LocalSettings.php:/var/www/html/LocalSettings.php
       - ./docker/mediawiki/conf.d:/usr/local/etc/php/conf.d-additional:ro
+      - ./static/sitemap:/data/sitemap
       - /var/lib/mediawiki/images:/var/www/html/images
       - /var/log/mediawiki:/var/www/html/logs
       - /var/cache/mediawiki:/var/www/html/cache
