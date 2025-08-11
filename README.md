@@ -1,6 +1,6 @@
-# Paperworld Wiki - README
+# The Paper World Wiki
 
-Paperworld Wiki is a Dockerized MediaWiki 1.39.13 stack for "The Paper World".
+The Paper World Wiki is a Dockerized MediaWiki 1.39.13 stack for "The Paper World".
 It uses Nginx (TLS termination + reverse proxy), a custom MediaWiki image (PHP 8.1),
 and MySQL 5.7. Configuration is managed via docker-compose and environment variables.
 PHP runtime overrides are applied via an additional conf.d directory using
