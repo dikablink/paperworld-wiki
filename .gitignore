@@ -1,0 +1,29 @@
+# docker cruft
+**/.DS_Store
+**/.env
+**/.env.*
+!.env.example
+
+# mysql & volumes
+db_data/
+**/mysql/
+**/*.sql
+**/*.gz
+
+# mediawiki runtime data
+mediawiki/images/**
+!mediawiki/images/.gitkeep
+mediawiki/logs/**
+!mediawiki/logs/.gitkeep
+mediawiki/cache/**
+!mediawiki/cache/.gitkeep
+
+# certs and acme
+nginx/certs/**
+!nginx/certs/.gitkeep
+
+# editor/OS
+*.swp
+*.swo
+.idea/
+.vscode/

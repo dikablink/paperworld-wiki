@@ -1,0 +1,30 @@
+# robots.txt for wiki.anarkadia.net
+# Disallow non-pretty URLs and internal pages
+
+User-agent: *
+# Block backend script path
+Disallow: /w/
+
+# Block certain MediaWiki content namespaces
+Disallow: /wiki/User:
+Disallow: /wiki/Paper:
+Disallow: /wiki/File:
+Disallow: /wiki/MediaWiki:
+Disallow: /wiki/Template:
+Disallow: /wiki/Help:
+
+# Block all MediaWiki talk namespaces (even though they're disabled, no need to crawl)
+Disallow: /wiki/Talk:
+Disallow: /wiki/User_talk:
+Disallow: /wiki/Paper_talk:
+Disallow: /wiki/File_talk:
+Disallow: /wiki/MediaWiki_talk:
+Disallow: /wiki/Template_talk:
+Disallow: /wiki/Help_talk:
+Disallow: /wiki/Category_talk:
+
+# Allow everything else under /wiki/
+Allow: /wiki/
+
+# Sitemap (add generator and uncomment when ready)
+# Sitemap: https://wiki.anarkadia.net/sitemap.xml
