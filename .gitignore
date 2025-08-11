@@ -18,6 +18,14 @@ mediawiki/logs/**
 mediawiki/cache/**
 !mediawiki/cache/.gitkeep
 
+# ignore any nested git repos in extensions/skins
+mediawiki/extensions/*/.git
+mediawiki/skins/*/.git
+
+# keep lock files, ignore vendor dirs
+mediawiki/extensions/*/vendor/
+mediawiki/skins/*/vendor/
+
 # certs and acme
 nginx/certs/**
 !nginx/certs/.gitkeep
