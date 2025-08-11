@@ -1,14 +1,21 @@
-FROM mediawiki:1.39
+# --- Build vendors for extensions/skins with Composer ---
+FROM composer:2 AS extbuild
+ENV COMPOSER_ALLOW_SUPERUSER=1
+WORKDIR /app
 
-# Set upload sizes based on default.conf
-RUN { \
-  echo 'upload_max_filesize=100M'; \
-  echo 'post_max_size=100M'; \
-  echo 'memory_limit=256M'; \
-} > /usr/local/etc/php/conf.d/uploads.ini
+# Bring in your extension/skin sources from the repo
+COPY extensions/ ./extensions/
+COPY skins/ ./skins/
 
-# Logs directory from LocalSettings.php
-RUN mkdir -p /var/www/html/logs && chown -R www-data:www-data /var/www/html/logs
+# Install composer deps where needed via composer.json files
+RUN set -eux; \
+    find extensions skins -mindepth 1 -maxdepth 2 -type f -name composer.json -print0 \
+    | xargs -0 -I{} sh -c 'cd "$(dirname "{}")" && composer install --no-dev --prefer-dist --no-progress --optimize-autoloader'
 
-# Bring in your LocalSettings (compose will still bind-mount it; this is a sane default)
-COPY --chown=www-data:www-data LocalSettings.php /var/www/html/LocalSettings.php
+# --- Final image based on upstream MediaWiki ---
+FROM mediawiki:1.39.13
+
+# Copy extensions/skins *after* composer build so vendors come along
+RUN rm -rf /var/www/html/extensions /var/www/html/skins
+COPY --from=extbuild --chown=www-data:www-data /app/extensions /var/www/html/extensions
+COPY --from=extbuild --chown=www-data:www-data /app/skins      /var/www/html/skins
