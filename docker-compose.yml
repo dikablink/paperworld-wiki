@@ -1,0 +1,52 @@
+name: ${PROJECT_NAME}
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - mediawiki
+
+  mediawiki:
+    build: ./mediawiki
+    image: paperworld-wiki/mediawiki:1.39.13-custom
+    restart: unless-stopped
+    volumes:
+      - ./mediawiki/LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./docker/mediawiki/conf.d:/usr/local/etc/php/conf.d-additional:ro
+      - /var/lib/mediawiki/images:/var/www/html/images
+      - /var/log/mediawiki:/var/www/html/logs
+      - /var/cache/mediawiki:/var/www/html/cache
+    environment:
+      MEDIAWIKI_DB_TYPE: ${MEDIAWIKI_DB_TYPE}
+      MEDIAWIKI_DB_HOST: ${MEDIAWIKI_DB_HOST}
+      MEDIAWIKI_DB_PORT: ${MEDIAWIKI_DB_PORT}
+      MEDIAWIKI_DB_USER: ${MEDIAWIKI_DB_USER}
+      MEDIAWIKI_DB_PASSWORD: ${MEDIAWIKI_DB_PASSWORD}
+      MEDIAWIKI_DB_NAME: ${MEDIAWIKI_DB_NAME}
+      PHP_INI_SCAN_DIR: "/usr/local/etc/php/conf.d:/usr/local/etc/php/conf.d-additional"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+    external: true
+    name: ubuntu_db_data
+
