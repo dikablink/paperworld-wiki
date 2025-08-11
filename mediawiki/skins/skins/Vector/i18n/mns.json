@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ewithu"
+		]
+	},
+	"vector-languages": "Ла̄тӈыт",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ла̄тыӈ|$1 ла̄тӈыт}}",
+	"vector-no-language-button-label": "Ла̄тӈыт тув-нё̄тэн",
+	"vector-action-delete": "Э̄л урен",
+	"vector-action-move": "Мо̄т намыл ла̄вен",
+	"vector-action-protect": "Воянтап",
+	"vector-view-create": "Ва̄рнэ ва̄рмаль",
+	"vector-view-history": "Нэ̄пак история",
+	"vector-more-actions": "Са̄внув",
+	"vector-toc-beginning": "Э̄лы-о̄выл"
+}

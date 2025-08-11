@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lam-ang",
+			"Exec8"
+		]
+	},
+	"vector-languages": "Saray lenguahe",
+	"vector-language-button-label": "{{PLURAL:$1| $1 lenguahe| $1 ya lenguahe}}",
+	"vector-no-language-button-label": "Ipasakbay iray lenguahe",
+	"vector-action-delete": "Buralen",
+	"vector-action-move": "Iyales",
+	"vector-action-protect": "Iyagel",
+	"vector-view-create": "Palsaen",
+	"vector-view-edit": "Dumaen",
+	"vector-view-history": "Nengnengen so awaran",
+	"vector-view-view": "Basaen",
+	"vector-more-actions": "Lalo",
+	"vector-searchsuggest-containing": "Mananap na saray pahina ya wala ed <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+}
