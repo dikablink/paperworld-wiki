@@ -5,4 +5,5 @@ set -euo pipefail
 docker compose exec -T mediawiki php /var/www/html/maintenance/generateSitemap.php \
   --server=https://wiki.anarkadia.net \
   --fspath=/data/sitemap \
-  --urlpath=/sitemap
+  --urlpath=/sitemap \
+  --identifier=paperworld-wiki
