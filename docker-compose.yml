@@ -24,13 +24,13 @@ services:
       - /var/log/mediawiki:/var/www/html/logs
       - /var/cache/mediawiki:/var/www/html/cache
     environment:
-      MEDIAWIKI_DB_TYPE: ${MEDIAWIKI_DB_TYPE}
-      MEDIAWIKI_DB_HOST: ${MEDIAWIKI_DB_HOST}
-      MEDIAWIKI_DB_PORT: ${MEDIAWIKI_DB_PORT}
-      MEDIAWIKI_DB_USER: ${MEDIAWIKI_DB_USER}
+      MEDIAWIKI_DB_TYPE:     ${MEDIAWIKI_DB_TYPE}
+      MEDIAWIKI_DB_HOST:     ${MEDIAWIKI_DB_HOST}
+      MEDIAWIKI_DB_PORT:     ${MEDIAWIKI_DB_PORT}
+      MEDIAWIKI_DB_USER:     ${MEDIAWIKI_DB_USER}
       MEDIAWIKI_DB_PASSWORD: ${MEDIAWIKI_DB_PASSWORD}
-      MEDIAWIKI_DB_NAME: ${MEDIAWIKI_DB_NAME}
-      PHP_INI_SCAN_DIR: "/usr/local/etc/php/conf.d:/usr/local/etc/php/conf.d-additional"
+      MEDIAWIKI_DB_NAME:     ${MEDIAWIKI_DB_NAME}
+      PHP_INI_SCAN_DIR:      "/usr/local/etc/php/conf.d:/usr/local/etc/php/conf.d-additional"
     depends_on:
       - db
 
@@ -38,9 +38,9 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE:      ${MYSQL_DATABASE}
+      MYSQL_USER:          ${MYSQL_USER}
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
