@@ -35,3 +35,7 @@ nginx/certs/**
 *.swo
 .idea/
 .vscode/
+
+# Generated sitemaps
+static/sitemap/
+static/sitemap.xml
