@@ -15,6 +15,20 @@ RUN set -eux; \
 # --- Final image based on upstream MediaWiki ---
 FROM mediawiki:1.39.13
 
+# Install and enable intl
+USER root
+
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends libicu-dev; \
+    docker-php-ext-configure intl; \
+    docker-php-ext-install -j"$(nproc)" intl; \
+    docker-php-ext-enable intl; \
+    apt-get purge -y --auto-remove; \
+    rm -rf /var/lib/apt/lists/*
+
+USER www-data
+
 # Copy extensions/skins *after* composer build so vendors come along
 RUN rm -rf /var/www/html/extensions /var/www/html/skins
 COPY --from=extbuild --chown=www-data:www-data /app/extensions /var/www/html/extensions
