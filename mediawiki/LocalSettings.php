@@ -50,6 +50,16 @@ $wgLogos = [
 ## Set favicon.ico and related
 $wgFavicon = "favicon.ico";
 $wgAppleTouchIcon = "apple-touch-icon.png";
+$wgHooks['BeforePageDisplay'][] = function ( $out, $skin ) {
+    $out->addHeadItem(
+		'favicon-config', "
+		<link rel=\"icon\" type=\"image/png\" href=\"/favicon-96x96.png\" sizes=\"96x96\" />
+		<link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />
+		<link rel=\"shortcut icon\" href=\"/favicon.ico\" />
+		<meta name=\"apple-mobile-web-app-title\" content=\"Paper World\" />
+		<link rel=\"manifest\" href=\"/site.webmanifest\" />
+    ");
+};
 
 ## UPO means: this is also a user preference option
 
@@ -148,7 +158,6 @@ $wgVectorResponsive = true;
 # The following skins were automatically enabled:
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
-
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtension( 'ExtensionName' );
