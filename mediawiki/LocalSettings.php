@@ -47,6 +47,10 @@ $wgLogos = [
 	'icon' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
 ];
 
+## Set favicon.ico and related
+$wgFavicon = "favicon.ico";
+$wgAppleTouchIcon = "apple-touch-icon.png";
+
 ## UPO means: this is also a user preference option
 
 $wgEnableEmail = true;
