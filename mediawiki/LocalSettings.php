@@ -209,7 +209,7 @@ wfLoadExtension( 'PageForms' );
 
 # Custom namespaces:
 define( 'NS_PWO',   3000 );
-define( 'NS_World', 3001 );
+define( 'NS_World', 3002 );
 
 $wgExtraNamespaces[NS_PWO] =   'PWO';
 $wgExtraNamespaces[NS_World] = 'World';
