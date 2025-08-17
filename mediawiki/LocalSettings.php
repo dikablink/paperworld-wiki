@@ -185,14 +185,7 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'WikiEditor' );
 
-# End of automatically generated settings.
-# Add more configuration options below.
-
-# Added extensions:
-wfLoadExtension( 'CodeMirror' );
-wfLoadExtension( 'MobileFrontend' );
-wfLoadExtension( 'HeaderTabs' );
-
+# Semantic Media Wiki (& extensions):
 wfLoadExtension( 'SemanticMediaWiki' );
 require_once "$IP/extensions/SemanticMediaWiki/vendor/autoload.php";
 require_once "$IP/extensions/SemanticMediaWiki/includes/GlobalFunctions.php";
@@ -200,12 +193,27 @@ enableSemantics( 'wiki.anarkadia.net' );
 
 wfLoadExtension( 'SemanticResultFormats' );
 
+# Added extensions:
+wfLoadExtension( 'CodeMirror' );
+wfLoadExtension( 'MobileFrontend' );
+wfLoadExtension( 'HeaderTabs' );
 wfLoadExtension( 'intersection' );
 wfLoadExtension( 'CharInsert' );
 wfLoadExtension( 'Variables' );
 wfLoadExtension( 'Lockdown' );
 wfLoadExtension( 'TemplateStyles' );
 wfLoadExtension( 'PageForms' );
+
+# End of automatically generated settings.
+# Add more configuration options below.
+
+# Custom namespaces:
+define( 'NS_PWO', 3000 );
+
+$wgExtraNamespaces[NS_PWO] = 'PWO';
+
+$wgNamespacesWithSubpages[NS_PWO] = true;
+$wgContentNamespaces[] = NS_PWO;
 
 # Generate Debug & Deprecated logs:
 $wgDevelopmentWarnings = false;
@@ -253,4 +261,4 @@ $wgNamespacePermissionLockdown[NS_TEMPLATE_TALK] ['read'] = [];
 $wgNamespacePermissionLockdown[NS_HELP_TALK]     ['read'] = [];
 $wgNamespacePermissionLockdown[NS_CATEGORY_TALK] ['read'] = [];
 
-
+# Additional settings
