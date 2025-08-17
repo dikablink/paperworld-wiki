@@ -203,6 +203,7 @@ wfLoadExtension( 'Variables' );
 wfLoadExtension( 'Lockdown' );
 wfLoadExtension( 'TemplateStyles' );
 wfLoadExtension( 'PageForms' );
+wfLoadExtension( 'JsonConfig' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
@@ -266,3 +267,11 @@ $wgNamespacePermissionLockdown[NS_CATEGORY_TALK] ['read'] = [];
 
 # Additional settings
 
+# JsonConfig
+$wgJsonConfigEnableLuaSupport = true;
+$wgJsonConfigInterwikiCache = true;
+$wgJsonConfigInterwikiPrefixes = [ 'commons' ];
+$wgJsonConfigInterwikiPrefix = 'commons';
+$wgJsonConfigSites['commons'] = [
+	'url' => 'https://commons.wikimedia.org/w/api.php'
+];
