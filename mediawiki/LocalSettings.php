@@ -208,12 +208,15 @@ wfLoadExtension( 'PageForms' );
 # Add more configuration options below.
 
 # Custom namespaces:
-define( 'NS_PWO', 3000 );
+define( 'NS_PWO',   3000 );
+define( 'NS_World', 3001 );
 
-$wgExtraNamespaces[NS_PWO] = 'PWO';
-
-$wgNamespacesWithSubpages[NS_PWO] = true;
+$wgExtraNamespaces[NS_PWO] =   'PWO';
+$wgExtraNamespaces[NS_World] = 'World';
+$wgNamespacesWithSubpages[NS_PWO] =   true;
+$wgNamespacesWithSubpages[NS_World] = true;
 $wgContentNamespaces[] = NS_PWO;
+$wgContentNamespaces[] = NS_World;
 
 # Generate Debug & Deprecated logs:
 $wgDevelopmentWarnings = false;
@@ -262,3 +265,4 @@ $wgNamespacePermissionLockdown[NS_HELP_TALK]     ['read'] = [];
 $wgNamespacePermissionLockdown[NS_CATEGORY_TALK] ['read'] = [];
 
 # Additional settings
+
