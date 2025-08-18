@@ -272,19 +272,17 @@ $wgNamespacePermissionLockdown[NS_CATEGORY_TALK] ['read'] = [];
 $wgJsonConfigEnableLuaSupport = true;
 $wgJsonConfigInterwikiCache = true;
 
-## Commons
-$wgJsonConfigInterwikiPrefixes = [ 'commons' ];
-$wgJsonConfigInterwikiPrefix = 'commons';
-$wgJsonConfigSites['commons'] = [
-	'url' => 'https://commons.wikimedia.org/w/api.php'
-];
-
 ## Tabular
 $wgJsonConfigModels['Tabular.JsonConfig'] = 'JsonConfig\JCTabularContent';
 $wgJsonConfigs['Tabular.JsonConfig'] = [
     'namespace' => NS_DATA,       // Data:
     'nsName'    => 'Data',        // ensures the Data namespace name is known
     'isLocal'   => false,         // we fetch from Commons
-    'pattern'   => '/.\.tab$/',   // allow any title ending with .tab (incl. paths like I18n/…)
-    'remote'    => 'https://commons.wikimedia.org/w/api.php', // source of datasets
+    'pattern'   => '/.\.tab$/'   // allow any title ending with .tab (incl. paths like I18n/…)
+];
+
+## Commons
+$wgJsonConfigInterwikiPrefix = 'commons';
+$wgJsonConfigs['Tabular.JsonConfig']['remote'] = [
+	'url' => 'https://commons.wikimedia.org/w/api.php'
 ];
