@@ -184,6 +184,7 @@ wfLoadExtension( 'SecureLinkFixer' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'TemplateData' );
 
 # Semantic Media Wiki (& extensions):
 wfLoadExtension( 'SemanticMediaWiki' );
