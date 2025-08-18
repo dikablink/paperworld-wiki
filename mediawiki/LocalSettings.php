@@ -231,6 +231,8 @@ $wgLogDeprecated = "/var/www/html/logs/deprecated.log";
 $wgGroupPermissions['user']         ['edit'] = false;
 $wgGroupPermissions['autoconfirmed']['edit'] = false;
 $wgGroupPermissions['sysop']        ['edit'] = true;
+## Allow import uploads
+$wgGroupPermissions['sysop']['importupload'] = true;
 ## Completely disable Talk:
 ### Restrict all namespaces to the 'notalk' right
 $wgNamespaceProtection[NS_TALK]           = [ 'notalk' ];
